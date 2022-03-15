@@ -1,6 +1,6 @@
 ﻿namespace Blog.WebApp.Models;
 
-public record Article
+public record ArticleModel
 {
     public int Id { get; set; }
     public string Header { get; set; }

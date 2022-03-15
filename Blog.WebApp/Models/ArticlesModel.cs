@@ -2,5 +2,5 @@
 
 public record ArticlesModel
 {
-    public IEnumerable<Article> Articles { get; init; }
+    public IEnumerable<ArticleModel> Articles { get; init; }
 }
