@@ -1,0 +1,28 @@
+﻿@{
+    var article = Model as Article;
+    ViewData["Title"] = article?.Header;
+}
+
+<div class="row">
+    <div class="col">
+        <h2>@ViewData["Title"]</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        @article?.Body
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        @article?.Footer
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <a href="javascript:history.go(-1)" class="btn btn-primary">Назад</a>
+    </div>
+</div>

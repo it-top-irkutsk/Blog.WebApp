@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Статьи";
+
+    var articles = (Model as ArticlesModel)?.Articles;
+}
+
+<div class="row">
+    <div class="col">
+        <h2>@ViewData["Title"]</h2>
+    </div>
+</div>
+
+<div class="d-flex flex-wrap align-content-between justify-content-around">
+    @{
+        System.Diagnostics.Debug.Assert(articles != null, nameof(articles) + " != null");
+
+        foreach (var article in articles)
+        {
+            <div class="card w-25 ms-auto">
+                <div class="card-header">
+                    <h4>@article.Header</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@article.Body</p>
+                    <a href="/article/@article.Id" class="btn btn-primary">Подробнее ...</a>
+                </div>
+                <div class="card-footer text-muted">
+                    <p>@article.Footer</p>
+                    <p>&copy; Blog</p>
+                </div>
+            </div>
+        }
+    }
+</div>

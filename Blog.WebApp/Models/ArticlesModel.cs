@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace Blog.WebApp.Models;
+﻿namespace Blog.WebApp.Models;
 
 public record ArticlesModel
 {
