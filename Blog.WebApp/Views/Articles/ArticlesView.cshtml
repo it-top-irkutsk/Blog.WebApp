@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Blog.WebApp.Components
+@{
     ViewData["Title"] = "Статьи";
 
     var articles = (Model as ArticlesModel)?.Articles;
@@ -28,7 +29,8 @@
             @{
                 foreach (var article in articles)
                 {
-                    @Html.CreateCard(article)
+                   @Html.CreateCard(article)
+                   @await Component.InvokeAsync("Card", article)
                 }
             }
         </div>

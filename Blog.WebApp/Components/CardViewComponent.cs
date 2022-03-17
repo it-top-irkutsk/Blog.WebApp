@@ -1,15 +1,16 @@
-﻿using System.Text;
-using Blog.WebApp.Models;
+﻿using Blog.WebApp.Models;
 using Microsoft.AspNetCore.Html;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
 
-namespace Blog.WebApp;
+namespace Blog.WebApp.Components;
 
-public static class CardComponent
+public class CardViewComponent : ViewComponent
 {
-    public static HtmlString CreateCard(this IHtmlHelper html, ArticleModel article)
+    public IViewComponentResult Invoke(ArticleModel article)
     {
-        return new HtmlString( @$"
+        return new HtmlContentViewComponentResult(
+            new HtmlString( @$"
             <div class='card w-25 ms-auto'>
                 <div class='card-header'>
                     <h4>{article.Header}</h4>
@@ -21,6 +22,7 @@ public static class CardComponent
                 <div class='card-footer text-muted'>
                     <p>{article.Footer}</p>
                 </div>
-            </div>" );
+            </div>" )
+            );
     }
 }
